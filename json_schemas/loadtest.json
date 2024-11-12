@@ -1,0 +1,209 @@
+{
+  "$defs": {
+    "DynamicTest": {
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "format": "date-time",
+          "title": "Name",
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "title": "Starttime",
+          "type": "string"
+        },
+        "endTime": {
+          "title": "Endtime",
+          "type": "number"
+        },
+        "operatesOn": {
+          "format": "uuid",
+          "title": "Operateson",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/$defs/DynamicTestResult"
+          },
+          "title": "Results",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "startTime",
+        "endTime",
+        "operatesOn",
+        "results"
+      ],
+      "title": "DynamicTest",
+      "type": "object"
+    },
+    "DynamicTestResult": {
+      "properties": {
+        "span": {
+          "title": "Span",
+          "type": "integer"
+        },
+        "mode": {
+          "title": "Mode",
+          "type": "string"
+        },
+        "predictedFrequency": {
+          "title": "Predictedfrequency",
+          "type": "number"
+        },
+        "measuredFrequency": {
+          "title": "Measuredfrequency",
+          "type": "number"
+        },
+        "ratio": {
+          "title": "Ratio",
+          "type": "number"
+        }
+      },
+      "required": [
+        "span",
+        "mode",
+        "predictedFrequency",
+        "measuredFrequency",
+        "ratio"
+      ],
+      "title": "DynamicTestResult",
+      "type": "object"
+    },
+    "StaticTest": {
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "format": "date-time",
+          "title": "Name",
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "title": "Starttime",
+          "type": "string"
+        },
+        "endTime": {
+          "title": "Endtime",
+          "type": "number"
+        },
+        "operatesOn": {
+          "format": "uuid",
+          "title": "Operateson",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/$defs/StaticTestResult"
+          },
+          "title": "Results",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "startTime",
+        "endTime",
+        "operatesOn",
+        "results"
+      ],
+      "title": "StaticTest",
+      "type": "object"
+    },
+    "StaticTestResult": {
+      "properties": {
+        "span": {
+          "title": "Span",
+          "type": "integer"
+        },
+        "predictedDeflection": {
+          "title": "Predicteddeflection",
+          "type": "number"
+        },
+        "measuredDeflection": {
+          "title": "Measureddeflection",
+          "type": "number"
+        },
+        "ratio": {
+          "title": "Ratio",
+          "type": "number"
+        },
+        "residualDeflection": {
+          "title": "Residualdeflection",
+          "type": "number"
+        },
+        "recoveryRate": {
+          "title": "Recoveryrate",
+          "type": "number"
+        },
+        "representative": {
+          "title": "Representative",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "span",
+        "predictedDeflection",
+        "measuredDeflection",
+        "ratio",
+        "residualDeflection",
+        "recoveryRate",
+        "representative"
+      ],
+      "title": "StaticTestResult",
+      "type": "object"
+    }
+  },
+  "description": "This is the description of the main model",
+  "properties": {
+    "id": {
+      "format": "uuid",
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "tests": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DynamicTest"
+        },
+        {
+          "$ref": "#/$defs/StaticTest"
+        }
+      ],
+      "title": "Tests"
+    },
+    "sensors": {
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "title": "Sensors",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "tests",
+    "sensors"
+  ],
+  "title": "Loadtests NAP-2.4.2.0",
+  "type": "object"
+}

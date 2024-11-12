@@ -1,0 +1,72 @@
+{
+    "title": "Graph",
+    "type": "object",
+    "properties": {
+      "nodes": {
+        "title": "Nodes",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Node"
+        }
+      },
+      "relations": {
+        "title": "Relations",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Relation"
+        }
+      }
+    },
+    "definitions": {
+      "Node": {
+        "title": "Node",
+        "type": "object",
+        "properties": {
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "labels",
+          "params"
+        ]
+      },
+      "Relation": {
+        "title": "Relation",
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "string",
+            "format": "uuid"
+          },
+          "end": {
+            "title": "End",
+            "type": "string",
+            "format": "uuid"
+          },
+          "params": {
+            "title": "Params",
+            "type": "object"
+          }
+        },
+        "required": [
+          "type",
+          "start",
+          "end"
+        ]
+      }
+    }
+  }

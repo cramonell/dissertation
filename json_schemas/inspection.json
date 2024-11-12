@@ -1,0 +1,98 @@
+{
+  "$defs": {
+    "Damage": {
+      "properties": {
+        "element": {
+          "format": "uuid",
+          "title": "Element",
+          "type": "string"
+        },
+        "extent": {
+          "title": "Extent",
+          "type": "number"
+        },
+        "damage_type": {
+          "title": "Damage Type",
+          "type": "string"
+        },
+        "urgency_of_repair": {
+          "title": "Urgency Of Repair",
+          "type": "integer"
+        },
+        "category": {
+          "title": "Category",
+          "type": "integer"
+        },
+        "intensity": {
+          "title": "Intensity",
+          "type": "number"
+        },
+        "evolution": {
+          "title": "Evolution",
+          "type": "integer"
+        },
+        "percentage": {
+          "title": "Percentage",
+          "type": "number"
+        }
+      },
+      "required": [
+        "element",
+        "extent",
+        "damage_type",
+        "urgency_of_repair",
+        "category",
+        "intensity",
+        "evolution",
+        "percentage"
+      ],
+      "title": "Damage",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "id": {
+      "format": "uuid",
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "damages": {
+      "items": {
+        "$ref": "#/$defs/Damage"
+      },
+      "title": "Damages",
+      "type": "array"
+    },
+    "report": {
+      "title": "Report",
+      "type": "string"
+    },
+    "images": {
+      "title": "Images",
+      "type": "string"
+    },
+    "pointclouds": {
+      "title": "Pointclouds",
+      "type": "string"
+    },
+    "videos": {
+      "title": "Videos",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "damages",
+    "report",
+    "images",
+    "pointclouds",
+    "videos"
+  ],
+  "title": "Inspection",
+  "type": "object"
+}
