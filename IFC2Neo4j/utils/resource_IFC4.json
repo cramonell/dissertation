@@ -1,0 +1,506 @@
+{
+    "actorResources": {
+        "entities": [
+            "IfcActorRole",
+            "IfcAddress",
+            "IfcOrganization",
+            "IfcPerson",
+            "IfcPersonAndOrganization",
+            "IfcPostalAddress",
+            "IfcTelecomAddress"
+        ],
+        "relations": [
+            "IfcOrganizationRelationship"
+        ]
+    },
+    "approvalResource":{
+        "entities": [
+            "IfcApproval"
+        ],
+        "relations": [
+            "IfcApprovalRelationship",
+            "IfcResourceApprovalRelationship"
+        ]
+    }, 
+    "constraintResource" : {
+        "entities": [
+            "IfcConstraint",
+            "IfcMetric",
+            "IfcObjective",
+            "IfcReference"
+        ],
+        "relations": [
+            "IfcResourceConstraintRelationship"
+        ]
+    }, 
+    "costResource": {
+        "entities": [
+            "IfcAppliedValue",
+            "IfcCostValue"
+        ],
+        "relations": [
+            "IfcCurrencyRelationship"
+        ]
+    }, 
+    "dateTimeResource": {
+        "entities": [
+            "IfcEventTime",
+            "IfcIrregularTimeSeries",
+            "IfcIrregularTimeSeriesValue",
+            "IfcLagTime",
+            "IfcRecurrencePattern",
+            "IfcRegularTimeSeries",
+            "IfcResourceTime",
+            "IfcSchedulingTime",
+            "IfcTaskTime",
+            "IfcTaskTimeRecurring",
+            "IfcTimePeriod",
+            "IfcTimeSeries",
+            "IfcTimeSeriesValue",
+            "IfcWorkTime"
+        ],
+        "relations": []
+    }, 
+    "externalReferenceResource" : {
+        "entities": [
+            "IfcClassification",
+            "IfcClassificationReference",
+            "IfcDocumentInformation",
+            "IfcDocumentReference",
+            "IfcExternalInformation",
+            "IfcExternalReference",       
+            "IfcLibraryInformation",
+            "IfcLibraryReference" 
+        ],
+        "relations": [
+            "IfcDocumentInformationRelationship",
+            "IfcExternalReferenceRelationship",
+            "IfcResourceLevelRelationship"
+        ]
+    },
+    "geometricConstraintResource" : {
+        "entities": [
+            "IfcAlignmentCantSegment",
+            "IfcAlignmentHorizontalSegment",
+            "IfcAlignmentParameterSegment",
+            "IfcAlignmentVerticalSegment",
+            "IfcConnectionCurveGeometry",
+            "IfcConnectionGeometry",
+            "IfcConnectionPointEccentricity",
+            "IfcConnectionPointGeometry",
+            "IfcConnectionSurfaceGeometry",
+            "IfcConnectionVolumeGeometry",
+            "IfcGridAxis",
+            "IfcGridPlacement",
+            "IfcLinearPlacement",
+            "IfcLocalPlacement",
+            "IfcObjectPlacement",
+            "IfcVirtualGridIntersection"
+        ],
+        "relations": []
+    },
+    "geometricModelResource" : {
+        "entities": [
+            "IfcAdvancedBrep",
+            "IfcAdvancedBrepWithVoids",
+            "IfcBlock",
+            "IfcBooleanClippingResult",
+            "IfcBooleanResult",
+            "IfcBoundingBox",
+            "IfcBoxedHalfSpace",
+            "IfcCartesianPointList",
+            "IfcCartesianPointList2D",
+            "IfcCartesianPointList3D",
+            "IfcCsgPrimitive3D",
+            "IfcCsgSolid",
+            "IfcDirectrixDerivedReferenceSweptAreaSolid",
+            "IfcExtrudedAreaSolid",
+            "IfcExtrudedAreaSolidTapered",
+            "IfcFaceBasedSurfaceModel",
+            "IfcFacetedBrep",
+            "IfcFacetedBrepWithVoids",
+            "IfcFixedReferenceSweptAreaSolid",
+            "IfcGeometricCurveSet",
+            "IfcGeometricSet",
+            "IfcHalfSpaceSolid",
+            "IfcIndexedPolygonalFace",
+            "IfcIndexedPolygonalFaceWithVoids",
+            "IfcManifoldSolidBrep",
+            "IfcPolygonalBoundedHalfSpace",
+            "IfcPolygonalFaceSet",
+            "IfcRectangularPyramid",
+            "IfcRevolvedAreaSolid",
+            "IfcRevolvedAreaSolidTapered",
+            "IfcRightCircularCone",
+            "IfcRightCircularCylinder",
+            "IfcSectionedSolid",
+            "IfcSectionedSolidHorizontal",
+            "IfcSectionedSpine",
+            "IfcSectionedSurface",
+            "IfcShellBasedSurfaceModel",
+            "IfcSolidModel",
+            "IfcSphere",
+            "IfcSurfaceCurveSweptAreaSolid",
+            "IfcSweptAreaSolid",
+            "IfcSweptDiskSolid",
+            "IfcSweptDiskSolidPolygonal",
+            "IfcTessellatedFaceSet",
+            "IfcTessellatedItem",
+            "IfcTriangulatedFaceSet",
+            "IfcTriangulatedIrregularNetwork"
+        ],
+        "relations": []
+    },
+    "geometryResource" : {
+        "entities": [
+            "IfcAxis1Placement",
+            "IfcAxis2Placement2D",
+            "IfcAxis2Placement3D",
+            "IfcAxis2PlacementLinear",
+            "IfcBSplineCurve",
+            "IfcBSplineCurveWithKnots",
+            "IfcBSplineSurface",
+            "IfcBSplineSurfaceWithKnots",
+            "IfcBoundaryCurve",
+            "IfcBoundedCurve",
+            "IfcBoundedSurface",
+            "IfcCartesianPoint",
+            "IfcCartesianTransformationOperator",
+            "IfcCartesianTransformationOperator2D",
+            "IfcCartesianTransformationOperator2DnonUniform",
+            "IfcCartesianTransformationOperator3D",
+            "IfcCartesianTransformationOperator3DnonUniform",
+            "IfcCircle",
+            "IfcClothoid",
+            "IfcCompositeCurve",
+            "IfcCompositeCurveOnSurface",
+            "IfcCompositeCurveSegment",
+            "IfcConic",
+            "IfcCosineSpiral",
+            "IfcCurve",
+            "IfcCurveBoundedPlane",
+            "IfcCurveBoundedSurface",
+            "IfcCurveSegment",
+            "IfcCylindricalSurface",
+            "IfcDirection",
+            "IfcDirectrixCurveSweptAreaSolid",
+            "IfcElementarySurface",
+            "IfcEllipse",
+            "IfcGeometricRepresentationItem",
+            "IfcGradientCurve",
+            "IfcIndexedPolyCurve",
+            "IfcIntersectionCurve",
+            "IfcLine",
+            "IfcMappedItem",
+            "IfcOffsetCurve",
+            "IfcOffsetCurve2D",
+            "IfcOffsetCurve3D",
+            "IfcOffsetCurveByDistances",
+            "IfcOuterBoundaryCurve",
+            "IfcPcurve",
+            "IfcPlacement",
+            "IfcPlane",
+            "IfcPoint",
+            "IfcPointByDistanceExpression",
+            "IfcPointOnCurve",
+            "IfcPointOnSurface",
+            "IfcPolyline",
+            "IfcPolynomialCurve",
+            "IfcRationalBSplineCurveWithKnots",
+            "IfcRationalBSplineSurfaceWithKnots",
+            "IfcRectangularTrimmedSurface",
+            "IfcReparametrisedCompositeCurveSegment",
+            "IfcRepresentationItem",
+            "IfcRepresentationMap",
+            "IfcSeamCurve",
+            "IfcSecondOrderPolynomialSpiral",
+            "IfcSegment",
+            "IfcSegmentedReferenceCurve",
+            "IfcSeventhOrderPolynomialSpiral",
+            "IfcSineSpiral",
+            "IfcSphericalSurface",
+            "IfcSpiral",
+            "IfcSurface",
+            "IfcSurfaceCurve",
+            "IfcSurfaceOfLinearExtrusion",
+            "IfcSurfaceOfRevolution",
+            "IfcSweptSurface",
+            "IfcThirdOrderPolynomialSpiral",
+            "IfcToroidalSurface",
+            "IfcTrimmedCurve",
+            "IfcVector"
+        ],
+        "relations": []
+    },
+    "materialResource" : {
+        "entities": [
+            "IfcMaterial",
+            "IfcMaterialConstituent",
+            "IfcMaterialConstituentSet",
+            "IfcMaterialDefinition",
+            "IfcMaterialLayer",
+            "IfcMaterialLayerSet",
+            "IfcMaterialLayerSetUsage",
+            "IfcMaterialLayerWithOffsets",
+            "IfcMaterialList",
+            "IfcMaterialProfile",
+            "IfcMaterialProfileSet",
+            "IfcMaterialProfileSetUsage",
+            "IfcMaterialProfileSetUsageTapering",
+            "IfcMaterialProfileWithOffsets",
+            "IfcMaterialProperties",
+            "IfcMaterialUsageDefinition"
+        ],
+        "relations": [
+            "IfcMaterialClassificationRelationship",
+            "IfcMaterialRelationship"
+        ]
+    },
+    "measureResource" : {
+        "entities": [
+            "IfcContextDependentUnit",
+            "IfcConversionBasedUnit",
+            "IfcConversionBasedUnitWithOffset",
+            "IfcDerivedUnit",
+            "IfcDerivedUnitElement",
+            "IfcDimensionalExponents",
+            "IfcMeasureWithUnit",
+            "IfcMonetaryUnit",
+            "IfcNamedUnit",
+            "IfcSIUnit",
+            "IfcUnitAssignment"
+        ],
+        "relations": []
+    },
+    "presentationAppearanceResource" : {
+        "entities": [
+            "IfcBlobTexture",
+            "IfcColourRgb",
+            "IfcColourRgbList",
+            "IfcColourSpecification",
+            "IfcCurveStyle",
+            "IfcCurveStyleFont",
+            "IfcCurveStyleFontAndScaling",
+            "IfcCurveStyleFontPattern",
+            "IfcDraughtingPreDefinedColour",
+            "IfcDraughtingPreDefinedCurveFont",
+            "IfcExternallyDefinedHatchStyle",
+            "IfcExternallyDefinedSurfaceStyle",
+            "IfcExternallyDefinedTextFont",
+            "IfcFillAreaStyle",
+            "IfcFillAreaStyleHatching",
+            "IfcFillAreaStyleTiles",
+            "IfcImageTexture",
+            "IfcIndexedColourMap",
+            "IfcIndexedPolygonalTextureMap",
+            "IfcIndexedTextureMap",
+            "IfcIndexedTriangleTextureMap",
+            "IfcPixelTexture",
+            "IfcPreDefinedColour",
+            "IfcPreDefinedCurveFont",
+            "IfcPreDefinedItem",
+            "IfcPreDefinedTextFont",
+            "IfcPresentationStyle",
+            "IfcStyledItem",
+            "IfcSurfaceStyle",
+            "IfcSurfaceStyleLighting",
+            "IfcSurfaceStyleRefraction",
+            "IfcSurfaceStyleRendering",
+            "IfcSurfaceStyleShading",
+            "IfcSurfaceStyleWithTextures",
+            "IfcSurfaceTexture",
+            "IfcTextStyle",
+            "IfcTextStyleFontModel",
+            "IfcTextStyleForDefinedFont",
+            "IfcTextStyleTextModel",
+            "IfcTextureCoordinate",
+            "IfcTextureCoordinateGenerator",
+            "IfcTextureCoordinateIndices",
+            "IfcTextureCoordinateIndicesWithVoids",
+            "IfcTextureMap",
+            "IfcTextureVertex",
+            "IfcTextureVertexList"
+        ],
+        "relations": []
+    },
+    "presentationDefinitionResource" : {
+        "entities": [
+            "IfcAnnotationFillArea",
+            "IfcPlanarBox",
+            "IfcPlanarExtent",
+            "IfcPresentationItem",
+            "IfcTextLiteral",
+            "IfcTextLiteralWithExtent"
+        ],
+        "relations": []
+    },
+    "presentationOrganizationResource" : {
+        "entities": [
+            "IfcLightDistributionData",
+            "IfcLightIntensityDistribution",
+            "IfcLightSource",
+            "IfcLightSourceAmbient",
+            "IfcLightSourceDirectional",
+            "IfcLightSourceGoniometric",
+            "IfcLightSourcePositional",
+            "IfcLightSourceSpot",
+            "IfcPresentationLayerAssignment",
+            "IfcPresentationLayerWithStyle"
+        ],
+        "relations": []
+    },
+    "profileResource" : {
+        "entities": [
+            "IfcArbitraryClosedProfileDef",
+            "IfcArbitraryOpenProfileDef",
+            "IfcArbitraryProfileDefWithVoids",
+            "IfcAsymmetricIShapeProfileDef",
+            "IfcCShapeProfileDef",
+            "IfcCenterLineProfileDef",
+            "IfcCircleHollowProfileDef",
+            "IfcCircleProfileDef",
+            "IfcCompositeProfileDef",
+            "IfcDerivedProfileDef",
+            "IfcEllipseProfileDef",
+            "IfcIShapeProfileDef",
+            "IfcLShapeProfileDef",
+            "IfcMirroredProfileDef",
+            "IfcOpenCrossProfileDef",
+            "IfcParameterizedProfileDef",
+            "IfcProfileDef",
+            "IfcProfileProperties",
+            "IfcRectangleHollowProfileDef",
+            "IfcRectangleProfileDef",
+            "IfcReinforcementBarProperties",
+            "IfcRoundedRectangleProfileDef",
+            "IfcSectionProperties",
+            "IfcSectionReinforcementProperties",
+            "IfcTShapeProfileDef",
+            "IfcTrapeziumProfileDef",
+            "IfcUShapeProfileDef",
+            "IfcZShapeProfileDef"
+        ],
+        "relations": []
+    },
+    "propertyResource" : {
+        "entities": [
+            "IfcComplexProperty",
+            "IfcExtendedProperties",
+            "IfcPreDefinedProperties",
+            "IfcProperty",
+            "IfcPropertyAbstraction",
+            "IfcPropertyBoundedValue",
+            "IfcPropertyEnumeratedValue",
+            "IfcPropertyEnumeration",
+            "IfcPropertyListValue",
+            "IfcPropertyReferenceValue",
+            "IfcPropertySingleValue",
+            "IfcPropertyTableValue",
+            "IfcSimpleProperty"
+        ],
+        "relations": [
+            "IfcPropertyDependencyRelationship"
+        ]
+    },
+    "quantityResource" : {
+        "entities": [
+            "IfcPhysicalComplexQuantity",
+            "IfcPhysicalQuantity",
+            "IfcPhysicalSimpleQuantity",
+            "IfcQuantityArea",
+            "IfcQuantityCount",
+            "IfcQuantityLength",
+            "IfcQuantityNumber",
+            "IfcQuantityTime",
+            "IfcQuantityVolume",
+            "IfcQuantityWeight"
+        ],
+        "relations": []
+    },
+    "representationResource" : {
+        "entities": [
+            "IfcCoordinateOperation",
+            "IfcCoordinateReferenceSystem",
+            "IfcGeographicCRS",
+            "IfcGeometricRepresentationContext",
+            "IfcGeometricRepresentationSubContext",
+            "IfcMapConversion",
+            "IfcMapConversionScaled",
+            "IfcMaterialDefinitionRepresentation",
+            "IfcProductDefinitionShape",
+            "IfcProductRepresentation",
+            "IfcProjectedCRS",
+            "IfcRepresentation",
+            "IfcRepresentationContext",
+            "IfcRigidOperation",
+            "IfcShapeAspect",
+            "IfcShapeModel",
+            "IfcShapeRepresentation",
+            "IfcStyleModel",
+            "IfcStyledRepresentation",
+            "IfcWellKnownText"
+        ],
+        "relations": []
+    },
+    "structuralLoadResource" : {
+        "entities": [
+            "IfcBoundaryCondition",
+            "IfcBoundaryEdgeCondition",
+            "IfcBoundaryFaceCondition",
+            "IfcBoundaryNodeCondition",
+            "IfcBoundaryNodeConditionWarping",
+            "IfcFailureConnectionCondition",
+            "IfcSlippageConnectionCondition",
+            "IfcStructuralConnectionCondition",
+            "IfcStructuralLoad",
+            "IfcStructuralLoadConfiguration",
+            "IfcStructuralLoadLinearForce",
+            "IfcStructuralLoadOrResult",
+            "IfcStructuralLoadPlanarForce",
+            "IfcStructuralLoadSingleDisplacement",
+            "IfcStructuralLoadSingleDisplacementDistortion",
+            "IfcStructuralLoadSingleForce",
+            "IfcStructuralLoadSingleForceWarping",
+            "IfcStructuralLoadStatic",
+            "IfcStructuralLoadTemperature",
+            "IfcSurfaceReinforcementArea"
+        ],
+        "relations": []
+    },
+    "topologyResource" : {
+        "entities": [
+            "IfcAdvancedFace",
+            "IfcClosedShell",
+            "IfcConnectedFaceSet",
+            "IfcEdge",
+            "IfcEdgeCurve",
+            "IfcEdgeLoop",
+            "IfcFace",
+            "IfcFaceBound",
+            "IfcFaceOuterBound",
+            "IfcFaceSurface",
+            "IfcLoop",
+            "IfcOpenShell",
+            "IfcOrientedEdge",
+            "IfcPath",
+            "IfcPolyLoop",
+            "IfcSubedge",
+            "IfcTopologicalRepresentationItem",
+            "IfcVertex",
+            "IfcVertexLoop",
+            "IfcVertexPoint"
+        ],
+        "relations": []
+    },
+    "utilityResource" : {
+        "entities": [
+            "IfcApplication",
+            "IfcOwnerHistory",
+            "IfcTable",
+            "IfcTableColumn",
+            "IfcTableRow"
+        ],
+        "relations": []
+    }
+
+}

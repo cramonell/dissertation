@@ -1,0 +1,162 @@
+{
+    "IfcRelAdheresToElement": {
+        "RelatingElement": "HasSurfaceFeatures",
+        "RelatedSurfaceFeatures":"AdherestoElement"
+    },
+
+    "IfcRelAggregates": {
+        "RelatedObjects": "Decomposes",
+        "RelatingObject": "IsDecomposedBy"
+    },
+
+    "IfcRelAssigns": {
+        "RelatedObjects": "HasAssignments",
+        "RelatingActor": "IsActingUpon",
+        "RelatingControl": "Controls",
+        "RelatingGroup": "IsGroupedBy",
+        "RelatingProcess": "OperatesOn",
+        "RelatingProduct": "ReferencedBy",
+        "RelatingResource": "ResourceOf"
+    },
+
+    "IfcRelAssociates":{
+        "RelatedObjects": "HasAssociations",
+        "RelatingApproval": "ApprovedObjects",
+        "RelatingClassification": "ClassificationForObjects",
+        "RelatingConstraint": "AssociatedTo",
+        "RelatingDocument": "DocumentInfoForObjects",
+        "RelatingLibrary": "LibraryForObjects",
+        "RelatingMaterial": "AssociatedTo",
+        "RelatingProfileDef": "AssociatedTo"
+    },
+
+    "IfcRelConnectsElements":{ 
+        "RelatingElement": "ConnectedTo",
+        "RelatedElement": "ConnectedFrom",
+        "params":["ConnectionGeometry"]
+    },
+
+    "IfcRelConnectsPortToElement":{
+        "RelatingPort" :"ContainedIn",
+        "RelatedElement":"HasPorts"
+    },
+
+    "IfcRelConnectsPorts":{
+        "RelatedPort": "ConnectedFrom",
+        "RelatingPort": "ConnectedTo"
+    },
+    
+    "IfcRelConnectsStructuralActivity":{
+        "RelatingElement": "AssignedStructuralActivity",
+        "RelatedStructuralActivity": "AssignedToStructuralItem"
+    },
+    
+    "IfcRelConnectsStructuralMember":{ 
+        "RelatingStructuralMember": "ConnectedBy",
+        "RelatedStructuralConnection": "ConnectsStructuralMembers",
+        "params":["AppliedCondition", "AdditionalConditions", "SupportedLength", "ConditionCoordinateSystem" ]
+    
+    },
+    
+    "IfcRelContainedInSpatialStructure":{
+        "RelatedElements": "ContainedIn",
+        "RelatingStructure": "ContainsElements"
+    },
+    
+    "IfcRelCoversBldgElements":{
+        "RelatingBuildingElement": "HasCoverings",
+        "RelatedCoverings":"CoversElements"
+    },
+
+    "IfcRelCoversSpaces":{
+        "RelatingSpace": "HasCoverings",
+        "RelatedCoverings":"CoversSpaces"
+    },
+
+    "IfcRelFillsElement":{
+        "RelatingOpeningElement": "HasFillings",
+        "RelatedBuildingElement": "FillsVoids"
+    
+    },
+    
+    "IfcRelFlowControlElements":{
+        "RelatedControlElements": "AssignedToFlowElement",
+        "RelatingFlowElement": "HasControlElements"
+    
+    },
+    
+    "IfcRelInterferesElements":{
+        "RelatedElement": "IsInterferedByElements",
+        "RelatingElement": "InterferesElements"
+    },
+    
+    "IfcRelPositions":{
+        "RelatingPositioningElement": "Positions",
+        "RelatedProducts": "PositionedRelativeTo"
+    },
+    
+    "IfcRelReferencedInSpatialStructure":{
+        "RelatedElements": "ReferencedInStructures",
+        "RelatingStructure": "ReferencesElements"
+    
+    },
+    
+    "IfcRelSequence":{
+        "RelatingProcess": "IsPredecessorTo",
+        "RelatedProcess": "IsSuccessorFrom",
+        "params": ["TimeLag", "SequenceType", "UserDefinedSequenceType"]
+    
+    },
+    
+    "IfcRelServicesBuildings":{
+        "RelatingSystem": "ServicesBuildings",
+        "RelatedBuildings": "ServicedBySystems"
+    
+    },
+
+    "IfcRelSpaceBoundary":{
+        "RelatingSpace": "BoundedBy",
+        "RelatedBuildingElement": "ProvidesBoundaries",
+        "params": ["ConnectionGeometry", "PhysicalOrVirtualBoundary", "InternalOrExternalBoundary"]
+    },
+
+    "IfcRelDeclares": {
+        "RelatedDefinitions": "HasContext",
+        "RelatingContext": "Declares"
+    },
+
+    "IfcRelDefinesByObject": {
+        "RelatedObjects": "IsDeclaredBy",
+        "RelatingObject": "Declares"
+    },
+    
+    "IfcRelDefinesByProperties": {
+        "RelatedObjects": "IsDefinedBy", 
+        "RelatingPropertyDefinition":"DefinesOccurrence"
+    },
+
+    "IfcRelDefinesByTemplate": {
+        "RelatedPropertySets": "IsDefinedBy",
+        "RelatingTemplate": "Defines"
+    },
+
+    "IfcRelDefinesByType": {
+        "RelatedObjects": "IsTypedBy",
+        "RelatingType": "Types"
+    },
+
+    "IfcRelNests": {
+        "RelatedObjects": "Nests",
+        "RelatingObject": "IsNestedBy"
+    },
+
+    "IfcRelProjectsElement": {
+        "RelatingElement": "HasProjections",
+        "RelatedFeatureElement": "ProjectsElement"
+    },
+
+    "IfcRelVoidsElement": {
+        "RelatingBuildingElement": "HasOpenings",
+        "RelatedOpeningElement": "VoidsElements"
+    }
+}
