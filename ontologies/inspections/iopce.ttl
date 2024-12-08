@@ -1,0 +1,268 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix dot: <https://w3id.org/dot#> .
+@prefix iopce: <https://w3id.org/iopce#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov1: <http://www.w3.org/TR/prov-o#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix seas: <http://www.w3id.org/seas/FeatureOfInterestOntology#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dce:contributor a owl:AnnotationProperty .
+
+dce:creator a owl:AnnotationProperty .
+
+dce:date a owl:AnnotationProperty .
+
+dce:description a owl:AnnotationProperty .
+
+dce:identifier a owl:AnnotationProperty .
+
+dce:language a owl:AnnotationProperty .
+
+dce:title a owl:AnnotationProperty .
+
+iopce:InpeccionBasica a owl:Class ;
+    rdfs:label "Basic Inspection"@en,
+        "Inspeccion Basica"@es ;
+    rdfs:comment "Visual inspection carried out by non-specialized personnel. This level of inspection provides a useful system for detecting early deterioration and thus preventing it from progressing into serious damage, as well as identifying any damage that requires urgent repair."@en,
+        "Inspección visual desarrollada por personal no especializado. Este nivel de inspección consituye una sistemática útil  para detectar deterioros de forma temprana y poder así prevenir que éstos degeneren en deterioros graves, así  comopara localizar daños que necesiten una reparación urgente"@es ;
+    rdfs:subClassOf dot:Inspection .
+
+iopce:InpeccionEspecial a owl:Class ;
+    rdfs:label "Special Inspection"@en,
+        "Inspeccion Especial"@es ;
+    rdfs:comment "Inspection arising from damage detected in main inspections or extraordinary situations. In addition to a visual examination, characterization tests and complementary measurements are required. These inspections necessitate the preparation of a characterization report and damage evaluation or a repair project."@en,
+        "Inspección que surge como  consecuencia de daños detectados en inspecciones principales o por situaciones extraordinarias. Además de un examen visual, se necesitan ensayos de caracterización y mediciones complementarias. Requieren la redacción de un informede caracterización y evaluación de daños ode un proyecto de reparación."@es ;
+    rdfs:isDefinedBy iopce: ;
+    rdfs:subClassOf dot:Inspection .
+
+iopce:InpeccionPrincipal a owl:Class ;
+    rdfs:label "Main Inspection"@en,
+        "Inspeccion Principal"@es ;
+    rdfs:comment "Thorough visual inspection of all bridge elements, constituting a genuine auscultation of the structure. Initially, it does not require the use of extraordinary means. It should be carried out by specialized personnel under the supervision of an engineer. It is recommended that the first major inspection, commonly known as 'inspection zero', be conducted shortly before the bridge is put into service, as it will serve as a reference for assessing the evolution of deterioration."@en,
+        "Inspección visual minuciosa del estado de todos los elementos del puente, constituyendo una auténtica auscultacion del mismo. A priori no requieren la utilización de medios extraordinarios. Deben ser realizadas por personal especializado bajo la supervisión de un ingeniero. Se recomienda que la primera inspección principal, denominada comunmente inspección cero, se realice poco antes de la puesta en servicio del puente, ya que servirá de referencia para determinar la evolución de los deterioros."@es ;
+    rdfs:subClassOf dot:Inspection .
+
+iopce:indice_de_condicion a owl:ObjectProperty ;
+    rdfs:label "condition index"@en,
+        "Indice de condicion"@es ;
+    rdfs:domain seas:FeatureOfInterest ;
+    rdfs:range iopce:PropiedadIndiceDeCondicion ;
+    rdfs:subPropertyOf seas:hasProperty .
+
+iopce:indice_de_deterioro a owl:ObjectProperty ;
+    rdfs:label "damage index"@en,
+        "indice de deterioro"@es ;
+    rdfs:domain seas:FeatureOfInterest ;
+    rdfs:range iopce:PropiedadIndiceDeDeterioro ;
+    rdfs:subPropertyOf seas:hasProperty .
+
+iopce:porcentaje a owl:ObjectProperty ;
+    rdfs:label "percentage"@en,
+        "porcentaje"@es ;
+    rdfs:domain dot:ClassifiedDamage ;
+    rdfs:range iopce:PropiedadPorcentaje ;
+    rdfs:subPropertyOf seas:hasProperty .
+
+iopce:PropiedadEvolucion a owl:Class ;
+    rdfs:label "Evolution"@en,
+        "Evolucion"@es ;
+    rdfs:comment """0: slow speed and non-aggressive environment
+1: low speed and aggressive environment or high speed and non-aggressive environment
+2: fast speed and aggressive environment
+"""@en,
+        """0: velocidad lenta y ambiente no agresivo
+1: velocidad baja y ambiente agresivo o velocidad alta y ambiente no agresivo
+2: velocidad rápida  y  ambiente agresivo
+"""@es ;
+    rdfs:subClassOf <http://www.w3id.org/opm#Property>,
+        seas:Property .
+
+iopce:PropiedadExtension a owl:Class ;
+    rdfs:label "Extension"@en,
+        "Extension"@es ;
+    rdfs:comment """1: <25%
+2:25-50%
+3:50-75%
+4:>75% """@en,
+        """1: <25%
+2:25-50%
+3:50-75%
+4:>75% """@es ;
+    rdfs:subClassOf <http://www.w3id.org/opm#Property>,
+        seas:Property .
+
+iopce:PropiedadGravedad a owl:Class ;
+    rdfs:label "Severity"@en,
+        "Gravedad"@es ;
+    rdfs:comment """0: <25%
+1:25-50%
+2:50-75%
+"""@en,
+        """0: <25%
+1:25-50%
+2:50-75%
+"""@es ;
+    rdfs:subClassOf <http://www.w3id.org/opm#Property>,
+        seas:Property .
+
+iopce:PropiedadIndiceDeCondicion a owl:Class ;
+    rdfs:label "Condition index"@en,
+        "Indice de condicion"@es ;
+    rdfs:comment """0-20: Structure without evident pathologies or with deteriorations that have no relevant consequences for the durability, service conditions, or safety of the structure.
+21-40: Structure with deteriorations that may have a pathological evolution affecting the durability or service conditions of the structure. It is advisable to monitor its temporal evolution for objective determination. 41-60: Structure with deteriorations that indicate a pathology leading to a reduction in the service conditions of the structure. It will be necessary to track the evolution of the pathology in subsequent inspections. Medium-term action may be required to enhance the structure’s durability. 
+61-80: Structure with deteriorations or pathologies that can result in a modification of the load-bearing behavior or a significant reduction in service levels. Requires short-to-medium-term action. Depending on the nature of the damage, a special inspection may be necessary. 
+81-100: Structure with deteriorations or pathologies compromising the safety of the element/structure. Requires a special inspection and urgent intervention. In some cases, usage restrictions may be necessary"""@en,
+        """0-20: Estructura sin patologías  evidentes o  con deterioros sin consecuencias relevantes para la durabilidad, condiciones de servicio o seguridad de la estructura.
+21-40: Estructura con deterioros que pueden tener una evolución patológica que afecte a la durabilidad o las condiciones de servicion de la estructura. Es conveniente sequir su evolución temporal para su determinación objetiva.
+41-60: Estructura con deterioros que evidencian una patología que puede suponer una reducción de las condiciones de servicio de la estructura. Será necesario seguir la evolución de la patología en posteriores inspecciones. Puede requerir una actuación a medio plazo para mejorar la durabilidad de la estructura.
+61-80: Estructura con deterioros o patologíasque se pueden traducir en una modificación del comportamiento resistente o una reducción importante de los niveles de servicio. Requiere una ctuación a corto-medio plazo. Enfunción de la naturalezadeldaño puede requerir una inspección especial.
+81-100: Estructura con deterioros o patologías que compromenten la seguridad del elemento/estructura. Requiere una inspección especial yuna actuación urgente. En algunos casos puede ser necesario una limitación del uso"""@es ;
+    rdfs:subClassOf <http://www.w3id.org/opm#Property>,
+        seas:Property .
+
+iopce:PropiedadIndiceDeDeterioro a owl:Class ;
+    rdfs:label "Damage index"@en,
+        "Indice de deterioro"@es ;
+    rdfs:comment """0-20: No significant consequences 'a priori' deterioration.
+21-40: Deterioration that may have pathological progression or reduce the serviceability or durability of the element if not repaired in a timely manner.
+41-60: Deterioration indicating a pathology that results in a reduction of serviceability or durability of the element.
+61-80: Deterioration that can translate into a modification of the structural or functional behavior.
+81-100: Deterioration that compromises the safety of the element"""@en,
+        """0-20:Deterioro sin consecuencias importantes 'a priori'
+21-40: Deterioro que puede tener una evolucion patológica o reducir las condiciones de servicio o de durabilidad del elemento si no se repara en el tiempo adecuado.
+41-60: Deterioro que indica una patología que supone una reducción de las condiciones de servicio o de durabilidad del elemento.
+61-80: Deterioro que se puede traducir en una modificación del comportamiento resistente o funcional.
+81-100: Deterioro quecompromete la seguridad del elemento"""@es ;
+    rdfs:subClassOf <http://www.w3id.org/opm#Property>,
+        seas:Property .
+
+iopce:PropiedadPorcentaje a owl:Class ;
+    rdfs:label "Percentage"@en,
+        "Porcentaje"@es ;
+    rdfs:comment "percentage of surface/volume damage"@en,
+        "porcentaje de daño en superficie/volumen"@es ;
+    rdfs:subClassOf <http://www.w3id.org/opm#Property>,
+        seas:Property .
+
+iopce:accesibilidad a owl:DatatypeProperty ;
+    rdfs:label "accessibility"@en,
+        "accesibilidad"@es ;
+    rdfs:comment """
+alta (high):
+    - Repairs easily accessible for equipment and machinery that need to perform them: small scaffolding, basket with truck crane within 15 meters of reach.
+    - No need to cut traffic for the execution of these works, or the cut has little importance.
+    - No affected services.
+media (medium):
+    - Requires the use of scaffolding of considerable height.
+    - Small volume formwork is needed to support the elements.
+    - It is necessary to resort to cranes with a reach of more than 15 meters.
+    - Access roads or small platforms need to be created to reach the base of the element.
+    - Other elements that can be reused need to be removed.
+    - Special measures are required for the protection of people.
+    - The affected services do not involve major works for their replacement (conduits under sidewalks, cables attached to the board…).
+baja (low):
+    - Special scaffolding or large-volume formwork is required.
+    - Cranes with a reach of more than 60 meters must be used.
+    - An auxiliary work or road diversion is necessary to divert traffic.
+    - Railway traffic is affected.
+    - The work will be carried out in deep water, with divers or other special means.
+    - Artificial peninsulas, enclosures with sheet piles, or particularly important platforms need to be created.
+    - Other elements that need to be replaced must be demolished or removed.
+    - Auxiliary works are needed for temporary protection in riverbeds, or important services may be affected, such as major conduits or sewerage, high-voltage lines, or railway catenaries
+"""@en,
+        """alta: 
+    - Reparaciones facilmente accesibles para el equipo y maquinaria que tenga que realizarlos: pequeños andamios, cesta con camión grúa a menos de 15m de alcance.
+    - No es necesario realizar cortes de tráfico para larealización de estas obras, o el  corte de los mismos tiene poca importancia.
+    - No hay servicios afectados
+media:
+    - Se necesita utilizar andamios de  considerable altura.
+    - Se precisan cimbras de pequeño volumen para el  sopoorte de los elementos.
+    - Se precisan recurrir a grúas de más de 15 m de alcance.
+    - Se necesita realizar caminos de acceso o plataformas de pequeña magnitud para llegar a la base del elemento.
+    - Es necesario retirar otros elementos que luego pueden ser reutilizados.
+    - Se requieren medidas especiales para protección de las personas.
+    - Los servicios afectados no implican obras importantes para su reposición (conducciones bajo aceras, cables adosados al tablero...)
+baja:
+    - Se requieren andamios especiales,cimbras exentas o de gran volumen.
+    - Se debe usar grúas de más de 60 m de alcance
+    - Se necesita realizar una obra auxiliar o camino para desviar el tráfico.
+    - Se afecta al tráfico ferroviario
+    - La obra se realizará bajo aguaprofunda, con buzos u otros medios especiales.
+    - Se requiere realizar pernínsulas artificiales, recintos con tablestacas o plataformas especialmente importantes.
+    - Se necesita demoler o retirar otros elementos que luego debenser repuestos.
+    - Son precisas obras auxiliares para protección temporal en cauces o pueden verse  afectados servicios de importancia:conducciones o alcantarillado importante, líneas AT, catenarias de FFCC.
+"""@es ;
+    rdfs:domain [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty iopce:accesibilidad ] ;
+    rdfs:range [ a owl:DataRange ;
+            owl:oneOf ( "baja"^^xsd:string "media"^^xsd:string "alta"^^xsd:string ) ] .
+
+iopce:codigo a owl:DatatypeProperty ;
+    rdfs:label "code"@en,
+        "codigo"@es ;
+    rdfs:comment "inspection code"@en,
+        "código de la inspección"@es ;
+    rdfs:domain dot:Inspection ;
+    rdfs:range xsd:string .
+
+iopce:evolucion a owl:ObjectProperty ;
+    rdfs:label "evolution"@en,
+        "evolucion"@es ;
+    rdfs:domain dot:ClassifiedDamage ;
+    rdfs:range iopce:PropiedadEvolucion ;
+    rdfs:subPropertyOf seas:hasProperty .
+
+iopce:extension a owl:ObjectProperty ;
+    rdfs:label "extension"@en,
+        "extension"@es ;
+    rdfs:domain dot:ClassifiedDamage ;
+    rdfs:range iopce:PropiedadExtension ;
+    rdfs:subPropertyOf seas:hasProperty .
+
+iopce:gravedad a owl:ObjectProperty ;
+    rdfs:label "severity"@en,
+        "gravedad"@es ;
+    rdfs:domain dot:ClassifiedDamage ;
+    rdfs:range iopce:PropiedadGravedad ;
+    rdfs:subPropertyOf seas:hasProperty .
+
+iopce: a owl:Ontology ;
+    cc:license "http://creativecommons.org/licenses/by/3.0/" ;
+    dce:creator "Carlos Ramonell Cazador (carlos.ramonell@upc.edu)" ;
+    dce:date "2024/03/27" ;
+    dce:description "Ontology that describes the bridge inspection entities and parameters according to the spanish guide for road bridge inspections. It extends DTO https://alhakam.github.io/dot/"@en,
+        "Ontología que describe las entidades y parámetros para la inspección de obras de paso en carreteras de acuerdo con la 'Guía para la inspección de obras de paso en la Red de Carreteras del Estado'. Amplía la DTO https://alhakam.github.io/dot/"@es ;
+    dce:language "en",
+        "es" ;
+    dce:title "Ontology for the Inspection of Bridges in the Spanish Road Network"@en,
+        "Ontología para la Inspección de Obras de Paso en la Red de Carreteras del Estado"@es ;
+    vann:preferredNamespacePrefix "iopce" ;
+    vann:preferredNamespaceUri "https://w3id.org/iopce#" ;
+    owl:imports "http://www.w3.org/TR/prov-o/",
+        "http://www.w3id.org/opm/opm.ttl",
+        "http://www.w3id.org/seas/FeatureOfInterestOntology#",
+        "https://alhakam.github.io/dot/" ;
+    owl:versionIRI iopce: ;
+    owl:versionInfo "1.0" .
+
+dot:ClassifiedDamage rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty iopce:evolucion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty iopce:extension ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty iopce:gravedad ],
+        seas:FeatureOfInterest .
+
+dot:Inspection rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty iopce:codigo ],
+        prov1:Activity .
+

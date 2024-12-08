@@ -1,0 +1,57 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix dot: <https://w3id.org/dot#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://w3id.org/sdo#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dce:contributor a owl:AnnotationProperty .
+
+dce:creator a owl:AnnotationProperty .
+
+dce:date a owl:AnnotationProperty .
+
+dce:description a owl:AnnotationProperty .
+
+dce:identifier a owl:AnnotationProperty .
+
+dce:language a owl:AnnotationProperty .
+
+dce:title a owl:AnnotationProperty .
+
+sdo:Corrosion a owl:Class ;
+    rdfs:label "Corrosion"@en,
+        "Corrosion"@es ;
+    rdfs:comment "Damage caused by iron oxidation, which occurs at a rate largely dependent on temperature, humidity, and the aggressiveness of the air in contact with the element, and causes partial or total loss of material section"@en,
+        "Deterioro causado por la oxidaciñon del hierro, que se produce a una velocidad que depende en gran medida de la temperatura, la humedad  y la agresividad del aire en contacto con el elemento y causa la perdida parcial o total de la seccion de material. "@es ;
+    rdfs:isDefinedBy sdo: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty sdo:section_loss ],
+        dot:ClassifiedDamage .
+
+sdo:section_loss a owl:DatatypeProperty ;
+    rdfs:label "section loss"@en,
+        "pérdida de sección"@es ;
+    rdfs:comment "material loss that modifies the mechanical characteristics of a corroded element to which affets. Unit: mm"@en,
+        "pérdida de material que modifica las propiedades mecánicas de el elemento corroido al que afecta. Unidades: mm"@es ;
+    rdfs:domain sdo:Corrosion ;
+    rdfs:isDefinedBy sdo: ;
+    rdfs:range xsd:float .
+
+sdo: a owl:Ontology ;
+    cc:license "http://creativecommons.org/licenses/by/3.0/" ;
+    dce:creator "Carlos Ramonell Cazador (carlos.ramonell@upc.edu)" ;
+    dce:date "2024/03/27" ;
+    dce:description "Ontology to describe material damages identified in built elements made of steel. It extends de Damage Topology Ontology (DTO): https://alhakam.github.io/dot/"@en,
+        "Ontologia que describe los deterioros en el material de elementos construidos con acero. Extiende la damage topology ontology (DTO): https://alhakam.github.io/dot/"@es ;
+    dce:language "en",
+        "es" ;
+    dce:title "Steel Damage Ontology" ;
+    vann:preferredNamespacePrefix "sdo" ;
+    vann:preferredNamespaceUri "https://w3id.org/sdo#" ;
+    owl:versionIRI sdo: ;
+    owl:versionInfo "1.0" .
+

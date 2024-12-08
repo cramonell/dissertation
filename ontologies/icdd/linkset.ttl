@@ -1,0 +1,229 @@
+@prefix : <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix ct: <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:issued a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:rights a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+foaf:address a owl:DatatypeProperty .
+
+foaf:name a owl:DatatypeProperty .
+
+foaf:website a owl:DatatypeProperty .
+
+:Directed1toNLink a owl:Class ;
+    rdfs:label "Directed1to NLink"@en-GB ;
+    rdfs:comment "an ls:Directed1toNLink is a subtype of ls:DirectedLink mandating exactly 1 ls:hasFromLinkElement"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasFromLinkElement ],
+        :DirectedLink .
+
+:DirectedBinaryLink a owl:Class ;
+    rdfs:label "Directed binary link"@en-GB ;
+    rdfs:comment "a subtype of a binary link (that has exactly 2 LinkElements) that uses the subproperties ls:hasFromLinkElement and ls:hasToLinkElement to denote a direction of this link"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasToLinkElement ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasFromLinkElement ],
+        :BinaryLink,
+        :DirectedLink .
+
+:uri a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "uri"@en-GB ;
+    rdfs:comment "an URI for referring to a document"@en-GB ;
+    rdfs:domain :URIBasedIdentifier ;
+    rdfs:range xsd:anyURI .
+
+voaf:Vocabulary a owl:Class .
+
+foaf:Organization a owl:Class .
+
+<https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset> a voaf:Vocabulary,
+        owl:Ontology ;
+    dc:rights """© ISO 2020. All rights reserved. Unless otherwise specified, or required in the context of its implementation, no part of this publication may be reproduced or utilized otherwise in any form or by any means, electronic or mechanical, including photocopying, or posting on the internet or an intranet, without prior written permission. Permission can be requested from either ISO at the address below or ISO’s member body in the country of the requester. 
+ISO copyright office
+ CP 401, Ch. de Blandonnet 8, CH-1214 Vernier, Geneva
+ Phone: +41 22 749 01 11
+ Fax: +41 22 749 09 47
+ Email: copyright@iso.org
+ Website: www.iso.org
+ Published in Switzerland"""@en-GB ;
+    dcterms:creator [ a foaf:Organization ;
+            foaf:Email "copyright@iso.org" ;
+            foaf:Fax "+41 22 749 09 47" ;
+            foaf:Phone "+41 22 749 01 11" ;
+            foaf:address "ISO copyright office CP 401, Ch. de Blandonnet 8, CH-1214 Vernier, Geneva" ;
+            foaf:name "ISO" ;
+            foaf:website "http://www.iso.org" ] ;
+    dcterms:description "ISO 21597 Part 1 gives a specification for a container that stores documents, along with a means of linking otherwise disconnected data within those documents. This linkset ontology is an RDF(S)/OWL file providing the object classes and properties that shall be used to specify between documents in a container."@en-GB ;
+    dcterms:issued "2020-01-01"^^xsd:date ;
+    dcterms:modified "2020-01-01"^^xsd:date ;
+    dcterms:title "The ISO 21597 ICDD Part 1 Linkset ontology."@en-GB ;
+    vann:preferredNamespacePrefix "ls" ;
+    vann:preferredNamespaceUri <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset> ;
+    owl:imports <https://standards.iso.org/iso/21597/-1/ed-1/en/Container> ;
+    owl:versionInfo "v1.0" .
+
+:BinaryLink a owl:Class ;
+    rdfs:label "Binary link"@en-GB ;
+    rdfs:comment "An ls:Link comprising exactly 2 individuals of class ls:LinkElement"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasLinkElement ],
+        :Link ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Link [ a owl:Restriction ;
+                        owl:cardinality "2"^^xsd:nonNegativeInteger ;
+                        owl:onProperty :hasLinkElement ] ) ] .
+
+:hasDocument a owl:ObjectProperty ;
+    rdfs:label "has document"@en-GB ;
+    rdfs:comment "a reference from a ls:LinkElement to a ct:Document"@en-GB ;
+    rdfs:domain :LinkElement ;
+    rdfs:range ct:Document .
+
+:hasIdentifier a owl:ObjectProperty ;
+    rdfs:label "has identifier"@en-GB ;
+    rdfs:comment "a relation from ls:LinkElement to an ls:Identifier"@en-GB ;
+    rdfs:domain :LinkElement ;
+    rdfs:range :Identifier .
+
+:identifier a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "identifier"@en-GB ;
+    rdfs:comment "a datatype String property containing the actual ID string"@en-GB ;
+    rdfs:domain :StringBasedIdentifier ;
+    rdfs:range xsd:string .
+
+:identifierField a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "identifier field"@en-GB ;
+    rdfs:comment "a String datatype for defining the field(s) where the identifier can be found; in cases where the identifier is composed of multiple fields, the implementer shall choose the syntax rules"@en-GB ;
+    rdfs:domain :StringBasedIdentifier ;
+    rdfs:range xsd:string .
+
+:queryExpression a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "query expression"@en-GB ;
+    rdfs:comment "the query resulting into an identifier"@en-GB ;
+    rdfs:domain :QueryBasedIdentifier ;
+    rdfs:range xsd:string .
+
+:queryLanguage a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "query language"@en-GB ;
+    rdfs:comment "a query lanugage specification"@en-GB ;
+    rdfs:domain :QueryBasedIdentifier ;
+    rdfs:range xsd:string .
+
+:URIBasedIdentifier a owl:Class ;
+    rdfs:label "URI based identifier"@en-GB ;
+    rdfs:comment "URI-based identifier for a document, or element within a document, that is located on the web"@en-GB ;
+    rdfs:subClassOf :Identifier .
+
+:hasToLinkElement a owl:ObjectProperty ;
+    rdfs:label "has to link element"@en-GB ;
+    rdfs:comment "a relation from an ls:Link to an ls:LinkElement. It is a sub property of ls:hasLinkElement"@en-GB ;
+    rdfs:domain :DirectedLink ;
+    rdfs:range :LinkElement ;
+    rdfs:subPropertyOf :hasLinkElement .
+
+:QueryBasedIdentifier a owl:Class ;
+    rdfs:label "Query based identifier"@en-GB ;
+    rdfs:comment "the query resulting in an identifier"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :queryLanguage ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :queryExpression ],
+        :Identifier .
+
+:StringBasedIdentifier a owl:Class ;
+    rdfs:label "String based identifier"@en-GB ;
+    rdfs:comment "identification of an element within a document via a String ID"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :identifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :identifierField ],
+        :Identifier .
+
+:hasFromLinkElement a owl:ObjectProperty ;
+    rdfs:label "has from link element"@en-GB ;
+    rdfs:comment "a relation from an ls:Link to an ls:LinkElement. It is a sub property of ls:hasLinkElement"@en-GB ;
+    rdfs:domain :DirectedLink ;
+    rdfs:range :LinkElement ;
+    rdfs:subPropertyOf :hasLinkElement .
+
+:DirectedLink a owl:Class ;
+    rdfs:label "Directed link"@en-GB ;
+    rdfs:comment "An ls:Link that uses the subproperties ls:hasFromLinkElement and ls:hasToLinkElement to denote a direction of this link"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasToLinkElement ],
+        [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasFromLinkElement ],
+        :Link .
+
+:Link a owl:Class ;
+    rdfs:label "Link"@en-GB ;
+    rdfs:comment "A grouping of 1 or more instances of  ls:LinkElement"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasLinkElement ] .
+
+:Identifier a owl:Class ;
+    rdfs:label "Identifier"@en-GB ;
+    rdfs:comment "An abstract class for identification of an element within a document; in cases where an identifier may be computed, this shall be managed by the implementer since no method is specified in this standard"@en-GB ;
+    rdfs:subClassOf owl:Thing ;
+    owl:disjointUnionOf ( :QueryBasedIdentifier :StringBasedIdentifier :URIBasedIdentifier ) .
+
+:LinkElement a owl:Class ;
+    rdfs:label "Link element"@en-GB ;
+    rdfs:comment "A class for referencing to a document or to an element in a document"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass ct:Document ;
+            owl:onProperty :hasDocument ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :Identifier ;
+            owl:onProperty :hasIdentifier ],
+        owl:Thing .
+
+:hasLinkElement a owl:ObjectProperty ;
+    rdfs:label "has link element"@en-GB ;
+    rdfs:comment "a relation from an ls:Link to an ls:LinkElement"@en-GB ;
+    rdfs:domain :Link ;
+    rdfs:range :LinkElement .
+

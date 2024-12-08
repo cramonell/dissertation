@@ -1,0 +1,405 @@
+@prefix : <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:issued a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:rights a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+foaf:address a owl:DatatypeProperty .
+
+foaf:name a owl:DatatypeProperty .
+
+foaf:website a owl:DatatypeProperty .
+
+:alternativeDocumentTo a owl:ObjectProperty ;
+    rdfs:label "alternative document to"@en-GB ;
+    rdfs:comment "a property to link a document to the main version of that document"@en-GB ;
+    rdfs:domain :Document ;
+    rdfs:range :Document ;
+    owl:inverseOf :alternativeDocument .
+
+:containedInContainer a owl:InverseFunctionalProperty ;
+    rdfs:label "contained by container"@en-GB ;
+    rdfs:comment "a relation from Linkset to the ContainerDescription to which it belongs."@en-GB ;
+    rdfs:domain :Linkset ;
+    rdfs:range :ContainerDescription ;
+    owl:inverseOf :containsLinkset .
+
+:created a owl:ObjectProperty ;
+    rdfs:label "created"@en-GB ;
+    rdfs:comment "a reference to an instance that was created by this Party"@en-GB ;
+    rdfs:domain :Party ;
+    owl:inverseOf :createdBy .
+
+:creationDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "creation date"@en-GB ;
+    rdfs:comment "The creation date as xsd:dateTime"@en-GB ;
+    rdfs:range xsd:dateTime .
+
+:encryptionAlgorithm a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "encryption algorithm" ;
+    rdfs:comment "optional string describing the encryption"@en-GB ;
+    rdfs:domain :EncryptedDocument ;
+    rdfs:range xsd:string .
+
+:format a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "format (mediatype)"@en-GB ;
+    rdfs:comment "The mediatype of a document following the Internet Assigned Numbers Authority's specification (https://www.iana.org/assignments/media-types/media-types.xhtml);examples are 'application/pdf' and 'audio/mpeg'"@en-GB ;
+    rdfs:domain :Document ;
+    rdfs:range xsd:string .
+
+:modificationDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "modification date"@en-GB ;
+    rdfs:comment "The modification date as xsd:dateTime"@en-GB ;
+    rdfs:range xsd:dateTime .
+
+:modified a owl:ObjectProperty ;
+    rdfs:label "modified"@en-GB ;
+    rdfs:comment "a reference to an instance that was modified by this Party"@en-GB ;
+    rdfs:domain :Party ;
+    owl:inverseOf :modifiedBy .
+
+:published a owl:ObjectProperty ;
+    rdfs:label "published"@en-GB ;
+    rdfs:comment "a reference to a container published by a Party"@en-GB ;
+    rdfs:domain :Party ;
+    owl:inverseOf :publishedBy .
+
+:userID a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "user ID"@en-GB ;
+    rdfs:comment "The user defined ID"@en-GB ;
+    rdfs:range xsd:string .
+
+:versionDescription a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "version info"@en-GB ;
+    rdfs:comment "an optional character string that may be used to provide a description for a version of the corresponding resource"@en-GB ;
+    rdfs:range xsd:string .
+
+:versionID a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "version ID"@en-GB ;
+    rdfs:comment "an optional character string that may be used to identify a version of the corresponding resource"@en-GB ;
+    rdfs:range xsd:string .
+
+voaf:Vocabulary a owl:Class .
+
+foaf:Organization a owl:Class .
+
+<https://standards.iso.org/iso/21597/-1/ed-1/en/Container> a voaf:Vocabulary,
+        owl:Ontology ;
+    dc:rights """© ISO 2020. All rights reserved. Unless otherwise specified, or required in the context of its implementation, no part of this publication may be reproduced or utilized otherwise in any form or by any means, electronic or mechanical, including photocopying, or posting on the internet or an intranet, without prior written permission. Permission can be requested from either ISO at the address below or ISO’s member body in the country of the requester. 
+ISO copyright office
+ CP 401, Ch. de Blandonnet 8, CH-1214 Vernier, Geneva
+ Phone: +41 22 749 01 11
+ Fax: +41 22 749 09 47
+ Email: copyright@iso.org
+ Website: www.iso.org
+ Published in Switzerland"""@en-GB ;
+    dcterms:creator [ a foaf:Organization ;
+            foaf:Email "copyright@iso.org" ;
+            foaf:Fax "+41 22 749 09 47" ;
+            foaf:Phone "+41 22 749 01 11" ;
+            foaf:address "ISO copyright office CP 401, Ch. de Blandonnet 8, CH-1214 Vernier, Geneva" ;
+            foaf:name "ISO" ;
+            foaf:website "http://www.iso.org" ] ;
+    dcterms:description "ISO 21597 Part 1 gives a specification for a container that stores documents, along with a means of linking otherwise disconnected data within those documents. This container ontology is an RDF(S)/OWL file providing the object classes and properties that shall be used to specify the contents of a container."@en-GB ;
+    dcterms:issued "2020-01-01"^^xsd:date ;
+    dcterms:modified "2020-01-01"^^xsd:date ;
+    dcterms:title "The ISO 21597 ICDD Part 1 Container ontology."@en-GB ;
+    vann:preferredNamespacePrefix "ct" ;
+    vann:preferredNamespaceUri <https://standards.iso.org/iso/21597/-1/ed-1/en/Container> ;
+    owl:versionInfo "v1.0" .
+
+:EncryptedDocument a owl:Class ;
+    rdfs:label "Encrypted Document"@en-GB ;
+    rdfs:comment "a reference to an encrypted document"@en-GB ;
+    rdfs:subClassOf :Document .
+
+:FolderDocument a owl:Class ;
+    rdfs:label "Folder Document"@en-GB ;
+    rdfs:comment "a document comprising of multiple files located in one folder, such as a GIS dataset consisting SHP files with associated DBF files"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :foldername ],
+        :Document .
+
+:Organisation a owl:Class ;
+    rdfs:label "Organisation"@en-GB ;
+    rdfs:comment "a class representing an organisation for provenance purposes"@en-GB ;
+    rdfs:subClassOf :Party .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en-GB ;
+    rdfs:comment "a class representing an person for provenance purposes"@en-GB ;
+    rdfs:subClassOf :Party .
+
+:alternativeDocument a owl:ObjectProperty ;
+    rdfs:label "alternative document"@en-GB ;
+    rdfs:comment "a property to link a document to an alternative version of that document"@en-GB ;
+    rdfs:domain :Document ;
+    rdfs:range :Document .
+
+:checksum a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "checksum"@en-GB ;
+    rdfs:comment "a checksum hash for the document reference; the checksum algorithm is specified by the property checksumAlgorithm"@en-GB ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :SecuredDocument :ContainerDescription ) ] ;
+    rdfs:range xsd:string .
+
+:checksumAlgorithm a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "checksum algorithm"@en-GB ;
+    rdfs:comment "the algorithm used to generate the checksum hash"@en-GB ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :SecuredDocument :ContainerDescription ) ] ;
+    rdfs:range xsd:string .
+
+:conformanceIndicator a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "conformance indicator"@en-GB ;
+    rdfs:comment "a string based indicator for ct:ContainerDescription to show to which part of the Standar this container conforms: for a Part 1 container, the value should be set to \"ICDD-Part1-Container\"; the range is not restricted to allow other indicator values"@en-GB ;
+    rdfs:range xsd:string .
+
+:description a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "description"@en-GB ;
+    rdfs:comment "a general description"@en-GB ;
+    rdfs:range xsd:string .
+
+:filetype a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "filetype"@en-GB ;
+    rdfs:comment "a string that specifies the file type such as  \"GML\", \"IFC\", \"shp\", \"xlsx\", \"pdf\",\"rvt\"; the string may be a compound string in indicating also version and data format (e.g. \"ifc-4-xml-zip\")"@en-GB ;
+    rdfs:domain :Document ;
+    rdfs:range xsd:string .
+
+:foldername a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "foldername"@en-GB ;
+    rdfs:comment """a folder name for specifying a folder where a multi file document can be found; the root corresponds with  the payload-documents folder of the ICDD container; the forward slash character ("/") shall be used as a folder separator.\r\r
+NOTE: An example of a foldername is “GIS Datasets/Terrain” which refers to the folder Terrain inside folder GIS Datasets inside the Payload documents folder in the container."""@en-GB ;
+    rdfs:domain :FolderDocument ;
+    rdfs:range xsd:string .
+
+:modifiedBy a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "modified by"@en-GB ;
+    rdfs:comment "a reference to a modifier of this instance which can only be a ct:Party (or a subclass of ct:Party)"@en-GB ;
+    rdfs:range :Party .
+
+:requested a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "pending"@en-GB ;
+    rdfs:comment "a boolean to indicate whether a document is required or not. When this property is not set the value can be interpreted as 'false'"@en-GB ;
+    rdfs:domain :Document ;
+    rdfs:range xsd:boolean .
+
+:url a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "document URI"@en-GB ;
+    rdfs:comment "the URL where the exterrnal document can be found"@en-GB ;
+    rdfs:domain :ExternalDocument ;
+    rdfs:range xsd:anyURI .
+
+:ExternalDocument a owl:Class ;
+    rdfs:label "External Document"@en-GB ;
+    rdfs:comment "a reference to a document outside a container"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :url ],
+        :Document .
+
+:InternalDocument a owl:Class ;
+    rdfs:label "Internal document"@en-GB ;
+    rdfs:comment "a reference to a document inside a container"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :filetype ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :filename ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :filename ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :belongsToContainer ],
+        :Document .
+
+:SecuredDocument a owl:Class ;
+    rdfs:label "Secured document"@en-GB ;
+    rdfs:comment "a document secured by a checksum algorithm (see also properties ct:checksum and ct:checksumAlgorithm )"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :checksumAlgorithm ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :checksum ],
+        :Document .
+
+:belongsToContainer a owl:ObjectProperty ;
+    rdfs:label "belongs to container"@en-GB ;
+    rdfs:comment "a owl property defining the relation between a document reference and a container"@en-GB ;
+    rdfs:domain :Document ;
+    rdfs:range :ContainerDescription ;
+    owl:inverseOf :containsDocument .
+
+:containsDocument a owl:ObjectProperty ;
+    rdfs:label "contains model"@en-GB ;
+    rdfs:comment "a relation from ct:ContainerDescription to a document reference. Relations to multiple document references is allowed"@en-GB ;
+    rdfs:domain :ContainerDescription ;
+    rdfs:range :Document ;
+    owl:inverseOf :belongsToContainer .
+
+:containsLinkset a owl:ObjectProperty ;
+    rdfs:label "contains linkset"@en-GB ;
+    rdfs:comment "a relation from a ct:ContainerDescription to a ct:Linkset reference. Multiple linkset references are allowed."@en-GB ;
+    rdfs:domain :ContainerDescription ;
+    rdfs:range :Linkset .
+
+:createdBy a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "created by"@en-GB ;
+    rdfs:comment "a reference to a creator of this instance which can only be a ct:Party (or a subclass of ct:Party)"@en-GB ;
+    rdfs:range :Party .
+
+:name a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "name"@en-GB ;
+    rdfs:comment "a name for a resource"@en-GB ;
+    rdfs:range xsd:string .
+
+:publishedBy a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "published by"@en-GB ;
+    rdfs:comment "a reference to the party responsible for making the container available"@en-GB ;
+    rdfs:range :Party .
+
+:filename a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "filename"@en-GB ;
+    rdfs:comment """the file name of a ct:Linkset or ct:InternalDocument; the root corresponds with  the payload-documents folder of the ICDD container; the forward slash character ("/") shall be used as a folder separator.\r\r
+NOTE: An example of a filename is “IFC Models/MyFile_1.ifc” which refers to the file MyFile_1.ifc inside the folder IFC Models inside the Payload documents folder in the container."""@en-GB ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Linkset :InternalDocument ) ] ;
+    rdfs:range xsd:string .
+
+:nextVersion a owl:InverseFunctionalProperty ;
+    rdfs:label "next version"@en-GB ;
+    rdfs:comment "an optional reference to the next version of this resource"@en-GB ;
+    owl:inverseOf :priorVersion .
+
+:Linkset a owl:Class ;
+    rdfs:label "Linkset"@en-GB ;
+    rdfs:comment "a reference to a RDF/OWL file containing links"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :Linkset ;
+            owl:onProperty :priorVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Linkset ;
+            owl:onProperty :nextVersion ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :filename ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :priorVersion ] .
+
+:priorVersion a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "prior version"@en-GB ;
+    rdfs:comment "an optional reference to the prior version of this resource"@en-GB .
+
+:ContainerDescription a owl:Class ;
+    rdfs:label "Container"@en-GB ;
+    rdfs:comment "a description for a ICDD container where all documents are listed and where Link datasets can be found"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :publishedBy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :ContainerDescription ;
+            owl:onProperty :nextVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :ContainerDescription ;
+            owl:onProperty :priorVersion ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :conformanceIndicator ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Linkset ;
+            owl:onProperty :containsLinkset ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :createdBy ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :priorVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Document ;
+            owl:onProperty :containsDocument ] .
+
+:Party a owl:Class ;
+    rdfs:label "Party"@en-GB ;
+    rdfs:comment "an abstract class that represents the generalization of a ct:Organisation or a ct:Person; entities can refer to an individual of a subclass of ct:Party via the ct:creator, ct:modifier or ct:publisher object properties."@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :name ],
+        owl:Thing ;
+    owl:disjointUnionOf ( :Organisation :Person ) .
+
+:Document a owl:Class ;
+    rdfs:label "Document"@en-GB ;
+    rdfs:comment "abstract class for references to a document; an individual shall at least be member of ct:ExternalDocument or ct:InternalDocument; and optionally, individuals can be a member of other subtypes of ct:Document such as ct:SecuredDocument and/or ct:EncryptedDocument"@en-GB ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :name ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :priorVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Document ;
+            owl:onProperty :priorVersion ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :nextVersion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :requested ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Document ;
+            owl:onProperty :nextVersion ],
+        owl:Thing ;
+    owl:disjointUnionOf ( :ExternalDocument :InternalDocument ) .
+
